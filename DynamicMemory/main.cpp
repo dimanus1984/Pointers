@@ -7,8 +7,11 @@ using std::endl;
 #define tab "\t"
 //Function templates
 
-void FillRand(int arr[], const int n);
-void FillRand(int** arr, const int m, const int n);
+//void FillRand(double arr[], const int n);
+
+template<typename T>void FillRand(T arr[], const int n);
+void FillRand(double** arr, const int m, const int n);
+template<typename T>void FillRand(T** arr, const int m, const int n);
 
 template<typename T>void Print(T arr[], const int n);
 template<typename T>void Print(T** arr, const int m, const int n);
@@ -94,41 +97,42 @@ void main()
 	////////////////////////////////////////////////////////////////////////////
 	/////////////   ОБЪЯВЛЕНИЕ ДВУМЕРНОГО ДИНАМИЧЕСКОГО МАССИВА   //////////////
 	////////////////////////////////////////////////////////////////////////////
-	int m; //Количество строк
-	int n; //Количество элементов строки
+	int r; //Количество строк
+	int c; //Количество элементов строки
 	//1) Создаем массив указателей, и сохраняем его адрес в указатель на указатель:
-	cout << "Введите количество строк: "; cin >> m;
-	cout << "Введите количество элементов строки (столбцов): "; cin >> n;
+	cout << "Введите количество строк: "; cin >> r;
+	cout << "Введите количество элементов строки (столбцов): "; cin >> c;
 	//1) Создаем массив указателей, и сохраняем его адрес в указатель на указатель:
-	int** arr = new int* [m] {};
+	double** arr2 = new double* [r] {};
 	//2) Выделяем память под строки двумерного массива:
-	for (int i = 0; i < m; i++)
+	for (int i = 0; i < r; i++)
 	{
-		arr[i] = new int[n] {};
+		arr2[i] = new double[c] {};
 	}
 	////////////////////////////////////////////////////////////////////////////
 	/////////////   ИСПОЛЬЗОВАНИЕ ДВУМЕРНОГО ДИНАМИЧЕСКОГО МАССИВА   ///////////
 	////////////////////////////////////////////////////////////////////////////
 	//cout << "Память выделена для добавления строки" << endl;
 	//system("pause");
-	FillRand(arr, m, n);
-	Print(arr, m, n);
+	FillRand(arr2, r, c);
+	Print(arr2, r, c);
+
 	cout << "Добавление стоки в конец массива:\n";
-	push_row_back(arr, m, n);
-	Print(arr, m, n);
+	push_row_back(arr2, r, c);
+	Print(arr2, r, c);
 	//cout << "Строка добавлена" << endl;
 
 	cout << "Добавление стоки в начало массива:\n";
-	push_row_front(arr, m, n);
-	Print(arr, m, n);
+	push_row_front(arr2, r, c);
+	Print(arr2, r, c);
 
 	cout << "Удаление стоки в конце массива:\n";
-	pop_row_back(arr, m, n);
-	Print(arr, m, n);
+	pop_row_back(arr2, r, c);
+	Print(arr2, r, c);
 
 	cout << "Добавление столбца в конец:" << endl;
-	push_col_back(arr, m, n);
-	Print(arr, m, n);
+	push_col_back(arr2, r, c);
+	Print(arr2, r, c);
 
 	//cout << "Строка добавлена";
 
@@ -137,12 +141,12 @@ void main()
 	////////////////////////////////////////////////////////////////////////////
 	//Выполняется в 2 этапа:
 	//1) Удаление строк
-	for (int i = 0; i < m; i++)
+	for (int i = 0; i < r; i++)
 	{
-		delete[] arr[i];
+		delete[] arr2[i];
 	}
 	//2) Удаление массива указателей:
-	delete[] arr;
+	delete[] arr2;
 #endif // DYNAMIC_MEMORY_2
 
 #ifdef DEBUG_ARRAYS
@@ -152,15 +156,23 @@ void main()
 #endif //DEBUG_ARRAYS
 }
 
-void FillRand(int arr[], const int n)
+template<typename T>void FillRand(T arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
 	{
 		arr[i] = rand() % 100;
 	}
 }
-
-void FillRand(int** arr, const int m, const int n)
+void FillRand(double** arr, const int m, const int n)
+{
+	for (int i = 0; i < m; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			arr[i][j] = double(rand() % 10000)/100;
+		}
+	}
+}template<typename T>void FillRand(T** arr, const int m, const int n)
 {
 	for (int i = 0; i < m; i++)
 	{
