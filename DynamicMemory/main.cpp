@@ -6,41 +6,30 @@ using std::endl;
 
 #define tab "\t"
 //Function templates
+
 void FillRand(int arr[], const int n);
 void FillRand(int** arr, const int m, const int n);
 
-template<typename T>
-void Print(T arr[], const int n);
-template<typename T>
-void Print(T** arr, const int m, const int n);
+template<typename T>void Print(T arr[], const int n);
+template<typename T>void Print(T** arr, const int m, const int n);
 
-template<typename T>
-void push_back(T*& arr, int& n, T value);
-template<typename T>
-void push_front(T*& arr, int& n, T value);
-template<typename T>
-void insert(T*& arr, int& n, T value, int index);
+template<typename T>void push_back(T*& arr, int& n, T value);
+template<typename T>void push_front(T*& arr, int& n, T value);
+template<typename T>void insert(T*& arr, int& n, T value, int index);
 
-template<typename T>
-void pop_back(T*& arr, int& n); // Удаляет элемент с конца массива
-template<typename T>
-void pop_front(T*& arr, int& n); //*& ссылка на указатель
-template<typename T>
-void erase(T*& arr, int& n, int index);
+template<typename T>void pop_back(T*& arr, int& n); // Удаляет элемент с конца массива
+template<typename T>void pop_front(T*& arr, int& n); //*& ссылка на указатель
+template<typename T>void erase(T*& arr, int& n, int index);
 
 //Добавление строк:
-template<typename T>
-void push_row_back(T**& arr, int& m, const int n);
-template<typename T>
-void push_row_front(T**& arr, int& m, const int n);
+template<typename T>void push_row_back(T**& arr, int& m, const int n);
+template<typename T>void push_row_front(T**& arr, int& m, const int n);
 
 //Удаление строк:
-template<typename T>
-void pop_row_back(T**& arr, int& m, const int n);
+template<typename T>void pop_row_back(T**& arr, int& m, const int n);
 
 //Добавление столбцов:
-template<typename T>
-void push_col_back(T** arr, const int m, int& n);
+template<typename T>void push_col_back(T** arr, const int m, int& n);
 
 //#define PUSH_BACK
 //#define DYNAMIC_MEMORY_1
@@ -181,8 +170,7 @@ void FillRand(int** arr, const int m, const int n)
 		}
 	}
 }
-template<typename T>
-void Print(T arr[], const int n)
+template<typename T>void Print(T arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
 	{
@@ -190,8 +178,7 @@ void Print(T arr[], const int n)
 	}
 	cout << endl;
 }
-template<typename T>
-void Print(T** arr, const int m, const int n)
+template<typename T>void Print(T** arr, const int m, const int n)
 {
 	for (int i = 0; i < m; i++)
 	{
@@ -202,8 +189,7 @@ void Print(T** arr, const int m, const int n)
 		cout << endl;
 	}
 }
-template<typename T>
-void push_back(T*& arr, int& n, T value)
+template<typename T>void push_back(T*& arr, int& n, T value)
 {
 	//1) Создаем буферный массив нужного размера
 	T* buffer = new T[n + 1]{};
@@ -220,8 +206,7 @@ void push_back(T*& arr, int& n, T value)
 	arr[n] = value;
 	n++;
 }
-template<typename T>
-void push_front(T*& arr, int& n, T value)
+template<typename T>void push_front(T*& arr, int& n, T value)
 {
 	//1) Создаем буферный массив нужного размера
 	T* buffer = new T[n + 1/*Сложить, суммировать*/]{};
@@ -238,8 +223,7 @@ void push_front(T*& arr, int& n, T value)
 	arr[0] = value;
 	n++; //Прибавить
 }
-template<typename T>
-void insert(T*& arr, int& n, T value, int index)
+template<typename T>void insert(T*& arr, int& n, T value, int index)
 {
 	T* buffer = new T[n + 1]{};
 	//1 способ
@@ -274,8 +258,7 @@ void insert(T*& arr, int& n, T value, int index)
 	arr[index] = value;
 	n++;
 }
-template<typename T>
-void pop_back(T*& arr, int& n)
+template<typename T>void pop_back(T*& arr, int& n)
 {
 	T* buffer = new T[--n/*Отнять*/]{}; //Фигурные скобки заполняют выделяемую память нулями
 	// Для того чтобы удалить елемент из массива,
@@ -287,8 +270,7 @@ void pop_back(T*& arr, int& n)
 	delete[] arr;
 	arr = buffer;
 }
-template<typename T>
-void pop_front(T*& arr, int& n)
+template<typename T>void pop_front(T*& arr, int& n)
 {
 	T* buffer = new T[--n]{};
 	for (int i = 0; i < n; i++)
@@ -298,8 +280,7 @@ void pop_front(T*& arr, int& n)
 	delete[] arr;
 	arr = buffer;
 }
-template<typename T>
-void erase(T*& arr, int& n, int index)
+template<typename T>void erase(T*& arr, int& n, int index)
 {
 	T* buffer = new T[--n]{};
 	// 1 способ
@@ -324,8 +305,7 @@ void erase(T*& arr, int& n, int index)
 	delete[] arr;
 	arr = buffer;
 }
-template<typename T>
-void push_row_back(T**& arr, int& m, const int n)
+template<typename T>void push_row_back(T**& arr, int& m, const int n)
 {
 	//1) Создаем буферный массив:
 	T** buffer = new T* [m + 1]{};
@@ -357,8 +337,7 @@ void push_row_back(T**& arr, int& m, const int n)
 	arr[m] = new T[n] {};
 	m++;
 }
-template<typename T>
-void push_row_front(T**& arr, int& m, const int n)
+template<typename T>void push_row_front(T**& arr, int& m, const int n)
 {
 	//1) Создаем буферный массив уазателей нужного размера:
 	T** buffer = new T* [m + 1]{};
@@ -376,8 +355,7 @@ void push_row_front(T**& arr, int& m, const int n)
 	//6)Увеличиваем количество сток:
 	m++;
 }
-template<typename T>
-void pop_row_back(T**& arr, int& m, const int n)
+template<typename T>void pop_row_back(T**& arr, int& m, const int n)
 {
 	//1) Создаем буферный массив указателей нужного размера:
 	T** buffer = new T* [--m]{}; // m - размер строки,
@@ -394,8 +372,7 @@ void pop_row_back(T**& arr, int& m, const int n)
 	//5) Сохраняем адрес нового массива:
 	arr = buffer;
 }
-template<typename T>
-void push_col_back(T** arr, const int m, int& n)
+template<typename T>void push_col_back(T** arr, const int m, int& n)
 {
 	//Проходим по строкам и переопределяем каждую строку:
 	for (int i = 0; i < m; i++)
