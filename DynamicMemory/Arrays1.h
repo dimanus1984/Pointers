@@ -1,9 +1,9 @@
-#pragma once
-//Прототипы функций выносятся в заголовочные файлы (*.h)
+п»ї#pragma once
+//РџСЂРѕС‚РѕС‚РёРїС‹ С„СѓРЅРєС†РёР№ РІС‹РЅРѕСЃСЏС‚СЃСЏ РІ Р·Р°РіРѕР»РѕРІРѕС‡РЅС‹Рµ С„Р°Р№Р»С‹ (*.h)
 void push_back(int*& arr, int& n, int value);
 void push_front(int*& arr, int& n, int value);
 void insert(int*& arr, int& n, int value, int index);
 
-void pop_back(int*& arr, int& n); // Удаляет элемент с конца массива
-void pop_front(int*& arr, int& n); //*& ссылка на указатель
+void pop_back(int*& arr, int& n); // РЈРґР°Р»СЏРµС‚ СЌР»РµРјРµРЅС‚ СЃ РєРѕРЅС†Р° РјР°СЃСЃРёРІР°
+void pop_front(int*& arr, int& n); //*& СЃСЃС‹Р»РєР° РЅР° СѓРєР°Р·Р°С‚РµР»СЊ
 void erase(int*& arr, int& n, int index);
