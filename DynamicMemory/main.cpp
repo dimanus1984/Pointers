@@ -6,7 +6,7 @@ using std::endl;
 
 #define tab "\t"
 
-void FillRand(int arr[], const int n);
+void FillRand(int arr[], const int n); //Прототип функции - Объявление функции (Function declaration)
 void FillRand(int** arr, const int m, const int n);
 void Print(int arr[], const int n);
 void Print(int** arr, const int m, const int n);
@@ -152,7 +152,7 @@ void main()
 #endif //DEBUG_ARRAYS
 }
 
-void FillRand(int arr[], const int n)
+void FillRand(int arr[], const int n)//Реализация функции - Определение функции (Function definition)
 {
 	for (int i = 0; i < n; i++)
 	{
