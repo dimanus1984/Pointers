@@ -6,6 +6,7 @@ using std::endl;
 
 #define tab "\t"
 
+//Прототипы функций выносятся в заголовочные файлы (*.h)
 void FillRand(int arr[], const int n); //Прототип функции - Объявление функции (Function declaration)
 void FillRand(int** arr, const int m, const int n);
 void Print(int arr[], const int n);
@@ -152,6 +153,7 @@ void main()
 #endif //DEBUG_ARRAYS
 }
 
+//Реализация функций выносятся в *.cpp файлы.
 void FillRand(int arr[], const int n)//Реализация функции - Определение функции (Function definition)
 {
 	for (int i = 0; i < n; i++)
