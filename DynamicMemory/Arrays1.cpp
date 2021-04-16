@@ -1,7 +1,7 @@
-void push_back(int*& arr, int& n, int value)
+template<typename T>void push_back(T*& arr, int& n, int value)
 {
 	//1) Создаем буферный массив нужного размера
-	int* buffer = new int[n + 1]{};
+	T* buffer = new T[n + 1]{};
 	//2) Копируем все значения из исходного массива в буферный
 	for (int i = 0; i < n; i++)
 	{
@@ -16,10 +16,10 @@ void push_back(int*& arr, int& n, int value)
 	n++;
 }
 
-void push_front(int*& arr, int& n, int value)
+template<typename T>void push_front(T*& arr, int& n, int value)
 {
 	//1) Создаем буферный массив нужного размера
-	int* buffer = new int[n + 1/*Сложить, суммировать*/]{};
+	T* buffer = new T[n + 1/*Сложить, суммировать*/]{};
 	//2) Копируем все значения из исходного массива в буферный
 	for (int i = 0; i < n; i++)
 	{
@@ -34,9 +34,9 @@ void push_front(int*& arr, int& n, int value)
 	n++; //Прибавить
 }
 
-void insert(int*& arr, int& n, int value, int index)
+template<typename T>void insert(T*& arr, int& n, T value, int index)
 {
-	int* buffer = new int[n + 1]{};
+	T* buffer = new T[n + 1]{};
 	//1 способ
 	/*for (int i = 0; i < index; i++)
 	{
@@ -70,9 +70,9 @@ void insert(int*& arr, int& n, int value, int index)
 	n++;
 }
 
-void pop_back(int*& arr, int& n)
+template<typename T>void pop_back(T*& arr, int& n)
 {
-	int* buffer = new int[--n/*Отнять*/]{}; //Фигурные скобки заполняют выделяемую память нулями
+	T* buffer = new T[--n/*Отнять*/]{}; //Фигурные скобки заполняют выделяемую память нулями
 	// Для того чтобы удалить елемент из массива,
 	// в буфферный массив нужно скопировать все элементы кроме удаляемого:
 	for (int i = 0; i < n; i++)
@@ -83,9 +83,9 @@ void pop_back(int*& arr, int& n)
 	arr = buffer;
 }
 
-void pop_front(int*& arr, int& n)
+template<typename T>void pop_front(T*& arr, int& n)
 {
-	int* buffer = new int[--n]{};
+	T* buffer = new T[--n]{};
 	for (int i = 0; i < n; i++)
 	{
 		buffer[i] = arr[i + 1];
@@ -94,9 +94,9 @@ void pop_front(int*& arr, int& n)
 	arr = buffer;
 }
 
-void erase(int*& arr, int& n, int index)
+template<typename T>void erase(T*& arr, int& n, int index)
 {
-	int* buffer = new int[--n]{};
+	T* buffer = new T[--n]{};
 	// 1 способ
 	/*for (int i = 0; i < index; i++)
 	{

@@ -1,4 +1,4 @@
-void push_row_back(int**& arr, int& m, const int n)
+template<typename T>void push_row_back(T**& arr, int& m, const int n)
 {
 	//1) Создаем буферный массив:
 	int** buffer = new int* [m + 1]{};
@@ -31,7 +31,7 @@ void push_row_back(int**& arr, int& m, const int n)
 	m++;
 }
 
-void push_row_front(int**& arr, int& m, const int n)
+template<typename T>void push_row_front(T**& arr, int& m, const int n)
 {
 	//1) Создаем буферный массив уазателей нужного размера:
 	int** buffer = new int* [m + 1]{};
@@ -50,7 +50,7 @@ void push_row_front(int**& arr, int& m, const int n)
 	m++;
 }
 
-void pop_row_back(int**& arr, int& m, const int n)
+template<typename T>void pop_row_back(T**& arr, int& m, const int n)
 {
 	//1) Создаем буферный массив указателей нужного размера:
 	int** buffer = new int* [--m]{}; // m - размер строки,
@@ -68,7 +68,7 @@ void pop_row_back(int**& arr, int& m, const int n)
 	arr = buffer;
 }
 
-void push_col_back(int** arr, const int m, int& n)
+template<typename T>void push_col_back(T** arr, const int m, int& n)
 {
 	//Проходим по строкам и переопределяем каждую строку:
 	for (int i = 0; i < m; i++)

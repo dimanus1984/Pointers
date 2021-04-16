@@ -1,9 +1,9 @@
 ﻿#pragma once
 //Прототипы функций выносятся в заголовочные файлы (*.h)
-void push_back(int*& arr, int& n, int value);
-void push_front(int*& arr, int& n, int value);
-void insert(int*& arr, int& n, int value, int index);
+template<typename T>void push_back(T*& arr, int& n, int value);
+template<typename T>void push_front(T*& arr, int& n, int value);
+template<typename T>void insert(T*& arr, int& n, T value, int index);
 
-void pop_back(int*& arr, int& n); // Удаляет элемент с конца массива
-void pop_front(int*& arr, int& n); //*& ссылка на указатель
-void erase(int*& arr, int& n, int index);
+template<typename T>void pop_back(T*& arr, int& n); // Удаляет элемент с конца массива
+template<typename T>void pop_front(T*& arr, int& n); //*& ссылка на указатель
+template<typename T>void erase(T*& arr, int& n, int index);

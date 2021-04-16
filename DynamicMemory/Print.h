@@ -6,5 +6,5 @@ using std::cin;
 using std::endl;
 #define tab "\t";
 
-void Print(int arr[], const int n);
-void Print(int** arr, const int m, const int n);
+template<typename T>void Print(T arr[], const int n);
+template<typename T>void Print(T** arr, const int m, const int n);

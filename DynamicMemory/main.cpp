@@ -1,12 +1,12 @@
-
 //Прототипы функций выносятся в заголовочные файлы (*.h)
 
 #include"FillRand.h"
 #include"Print.h"
+#include"Print.cpp"
 #include"Arrays1.h"
+#include"Arrays1.cpp"
 #include"Arrays2.h"
-
-
+#include"Arrays2.cpp"
 
 //#define PUSH_BACK
 //#define DYNAMIC_MEMORY_1
@@ -128,10 +128,3 @@ void main()
 	Print(arr, n);
 #endif //DEBUG_ARRAYS
 }
-
-
-
-
-
-
-
