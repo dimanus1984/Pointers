@@ -35,7 +35,7 @@ template<typename T>void pop_row_back(T**& arr, int& m, const int n);
 template<typename T>void push_col_back(T** arr, const int m, int& n);
 
 //#define PUSH_BACK
-//#define DYNAMIC_MEMORY_1
+#define DYNAMIC_MEMORY_1
 #define DYNAMIC_MEMORY_2
 //#define DEBUG_ARRAYS
 
@@ -169,7 +169,7 @@ void FillRand(double** arr, const int m, const int n)
 	{
 		for (int j = 0; j < n; j++)
 		{
-			arr[i][j] = double(rand() % 10000)/100;
+			arr[i][j] = double(rand() % 10000) / 100;
 		}
 	}
 }template<typename T>void FillRand(T** arr, const int m, const int n)
@@ -320,7 +320,7 @@ template<typename T>void erase(T*& arr, int& n, int index)
 template<typename T>void push_row_back(T**& arr, int& m, const int n)
 {
 	//1) Создаем буферный массив:
-	T** buffer = new T* [m + 1]{};
+	T** buffer = new T * [m + 1]{};
 
 	//for (int i = 0; i < m + 1; i++) // 'm + 1' - на одну строку больше
 	//{
@@ -346,13 +346,13 @@ template<typename T>void push_row_back(T**& arr, int& m, const int n)
 	//4)Переопределяем новый массив уазателей:
 	arr = buffer;
 	//5)Создаем добавляемую строку:
-	arr[m] = new T[n] {};
+	arr[m] = new T[n]{};
 	m++;
 }
 template<typename T>void push_row_front(T**& arr, int& m, const int n)
 {
 	//1) Создаем буферный массив уазателей нужного размера:
-	T** buffer = new T* [m + 1]{};
+	T** buffer = new T * [m + 1]{};
 	//2)копируем адреса строк В новый массив:
 	for (int i = 0; i < m; i++)
 	{
@@ -363,14 +363,14 @@ template<typename T>void push_row_front(T**& arr, int& m, const int n)
 	//4)Подменяем адрес на новый массив:
 	arr = buffer;
 	//5)Создаем добавленную строку:
-	arr[0] = new T[n] {};
+	arr[0] = new T[n]{};
 	//6)Увеличиваем количество сток:
 	m++;
 }
 template<typename T>void pop_row_back(T**& arr, int& m, const int n)
 {
 	//1) Создаем буферный массив указателей нужного размера:
-	T** buffer = new T* [--m]{}; // m - размер строки,
+	T** buffer = new T * [--m]{}; // m - размер строки,
 	//'--m' префиксный дикремент уменьшит количество сток на '1' и только потом выделяется память
 	//2) Копируем строки в новый массив:
 	for (int i = 0; i < m; i++)
