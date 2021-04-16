@@ -35,7 +35,7 @@ template<typename T>void pop_row_back(T**& arr, int& m, const int n);
 template<typename T>void push_col_back(T** arr, const int m, int& n);
 
 //#define PUSH_BACK
-#define DYNAMIC_MEMORY_1
+//#define DYNAMIC_MEMORY_1
 #define DYNAMIC_MEMORY_2
 //#define DEBUG_ARRAYS
 
@@ -172,7 +172,8 @@ void FillRand(double** arr, const int m, const int n)
 			arr[i][j] = double(rand() % 10000) / 100;
 		}
 	}
-}template<typename T>void FillRand(T** arr, const int m, const int n)
+}
+template<typename T>void FillRand(T** arr, const int m, const int n)
 {
 	for (int i = 0; i < m; i++)
 	{
